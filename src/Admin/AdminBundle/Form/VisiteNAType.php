@@ -13,7 +13,9 @@ class VisiteNAType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('datevisite')->add('diab')->add('tension')->add('poid')->add('remarque');
+        $builder->add('datevisite', 'datetime', array('widget' => 'single_text',
+                                               'date_format' => 'yyyy-MM-dd  HH:i'))
+                ->add('diab')->add('tension')->add('poid')->add('remarque');
     }
     
     /**

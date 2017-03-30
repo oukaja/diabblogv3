@@ -1,16 +1,51 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Vendu creation</h1>
+      <div class="col-lg-6 col-lg-offset-3"> 
+        <div class="panel panel-default"> 
+            <div class="panel-body"> 
+                <table class="table table-hover"> 
+                    {{ form_start(form, {'attr': {'class': 'form form-control'}}) }}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+                    {{ form_errors(form) }}
+                    <tr> 
+                        <td> 
+                            {{ form_label(form.datevendu, "datevendu", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.datevendu) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.datevendu, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.produit, "produit", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.produit) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.produit, {'attr': {'class': 'form form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.qte, "qte", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.qte) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.qte, {'attr': {'class': 'form form-control'}}) }}
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
 
-    <ul>
-        <li>
-            <a href="{{ path('vendu_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                        <td class="text text-center" colspan="2">
+                            <input class="btn btn-primary" type="submit" value="Create" />
+                        </td>
+                    </tr>
+                    {{ form_end(form) }}
+                </table> 
+            </div>
+        </div>
+    </div>
 {% endblock %}

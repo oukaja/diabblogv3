@@ -1,16 +1,78 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Visite creation</h1>
+    <div class="col-lg-6 col-lg-offset-3"> 
+        <div class="panel panel-default"> 
+            <div class="panel-body"> 
+                <table class="table table-hover"> 
+                    {{ form_start(form, {'attr': {'class': 'form form-control'}}) }}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+                    {{ form_errors(form) }}
+                    <tr> 
+                        <td> 
+                            {{ form_label(form.datevisite, "datevisite", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.datevisite) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.datevisite, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.diab, "diab", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.diab) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.diab, {'attr': {'class': 'form form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.tension, "tension", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.tension) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.tension, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.poid, "poid", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.poid) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.poid, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.remarque, "remarque", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.remarque) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.remarque, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(form.personne, "personne", {'attr': {'class': ''}}) }}
+                            {{ form_errors(form.personne) }}
+                        </td>
+                        <td>
+                            {{ form_widget(form.personne, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
 
-    <ul>
-        <li>
-            <a href="{{ path('visite_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+                    <tr>
+
+                        <td class="text text-center" colspan="2">
+                            <input class="btn btn-primary" type="submit" value="Create" />
+                        </td>
+                    </tr>
+                    {{ form_end(form) }}
+                </table> 
+            </div>
+        </div>
+    </div>
 {% endblock %}

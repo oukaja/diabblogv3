@@ -6,33 +6,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Admin\AdminBundle\Entity\Personne;
 
 /**
- * Adulte
+ * 
  *
- * @ORM\Table(name="adulte")
- * @ORM\Entity(repositoryClass="Admin\AdminBundle\Repository\AdulteRepository")
+ * @ORM\Entity
+ * 
  */
 class Adulte extends Personne
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+   
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    
+ 
      /**
      * @var string
      *

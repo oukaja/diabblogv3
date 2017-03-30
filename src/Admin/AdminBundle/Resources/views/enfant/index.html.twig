@@ -1,9 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Enfants list</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -35,14 +34,21 @@
                     <td>{{ enfant.nommere }}</td>
 
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('enfant_show', { 'id': enfant.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('enfant_edit', { 'id': enfant.id }) }}">edit</a>
-                            </li>
-                        </ul>
+                        <div class="btn btn-default"> 
+                            <a href="{{ path('enfant_show', { 'id': enfant.id }) }}">
+                                <i class="glyphicon glyphicon-zoom-in"> 
+                                    show
+                                </i> 
+                            </a>
+                        </div>
+
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('enfant_edit', { 'id': enfant.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                    edit
+                                </i> 
+                            </a> 
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
@@ -53,7 +59,11 @@
     </div>
     <ul>
         <li>
-            <a href="{{ path('enfant_new') }}">Create a new enfant</a>
+            <a href="{{ path('enfant_new') }}">
+                <i class="glyphicon glyphicon-plus"> 
+                    add Enfant
+                </i> 
+            </a>
         </li>
     </ul>
 {% endblock %}

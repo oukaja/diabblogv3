@@ -28,7 +28,7 @@ class Vendu
      /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datevendu", type="datetime",  nullable=false)
+     * @ORM\Column(name="datevendu", type="date",  nullable=false)
      */
     private $datevendu;
 

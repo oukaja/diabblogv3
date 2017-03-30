@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class EnfantType extends AbstractType {
 
@@ -14,9 +15,13 @@ class EnfantType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('ninscription')
-                ->add('dateinscription')
+                ->add('dateinscription', DateType::class, array(
+                    'widget' => 'single_text',
+                ))
                 ->add('nom')
-                ->add('datenaissance')
+                ->add('datenaissance', DateType::class, array(
+                    'widget' => 'single_text',
+                ))
                 ->add('adresse')
                 ->add('remarque')
                 ->add('civilite', ChoiceType::class, array(

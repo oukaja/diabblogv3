@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Adultes list</h1>
+
 
     <table class="table table-striped">
         <thead>
@@ -31,14 +31,23 @@
                     <td>{{ adulte.civilite }}</td>
                     <td>{{ adulte.ad }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('adulte_show', { 'id': adulte.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('adulte_edit', { 'id': adulte.id }) }}">edit</a>
-                            </li>
-                        </ul>
+
+                        <div class="btn btn-default"> 
+                            <a href="{{ path('adulte_show', { 'id': adulte.id }) }}">
+                                <i class="glyphicon glyphicon-zoom-in"> 
+                                    show
+                                </i> 
+                            </a>
+                        </div>
+
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('adulte_edit', { 'id': adulte.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                    edit
+                                </i> 
+                            </a> 
+                        </div>
+
                     </td>
                 </tr>
             {% endfor %}
@@ -49,7 +58,11 @@
     </div>
     <ul>
         <li>
-            <a href="{{ path('adulte_new') }}">Create a new adulte</a>
+            <a href="{{ path('adulte_new') }}">
+                <i class="glyphicon glyphicon-plus"> 
+                    add Adulte
+                </i> 
+            </a>
         </li>
     </ul>
 {% endblock %}

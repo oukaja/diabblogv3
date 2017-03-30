@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Visitenas list</h1>
+  
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,14 +23,21 @@
                     <td>{{ visiteNA.poid }}</td>
                     <td>{{ visiteNA.remarque }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('visitena_show', { 'id': visiteNA.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('visitena_edit', { 'id': visiteNA.id }) }}">edit</a>
-                            </li>
-                        </ul>
+                        <div class="btn btn-default"> 
+                            <a href="{{ path('visitena_show', { 'id': visiteNA.id }) }}">
+                                <i class="glyphicon glyphicon-zoom-in"> 
+                                    show
+                                </i> 
+                            </a>
+                        </div>
+
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('visitena_edit', { 'id': visiteNA.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                    edit
+                                </i> 
+                            </a> 
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
@@ -41,7 +48,11 @@
     </div>
     <ul>
         <li>
-            <a href="{{ path('visitena_new') }}">Create a new visiteNA</a>
+             <a href="{{ path('visitena_new') }}">
+                <i class="glyphicon glyphicon-plus"> 
+                    add VisiteNA
+                </i> 
+            </a>
         </li>
     </ul>
 {% endblock %}

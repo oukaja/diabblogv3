@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Vendus list</h1>
+   
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,14 +19,21 @@
                     <td>{% if vendu.datevendu %}{{ vendu.datevendu|date('Y-m-d H:i:s') }}{% endif %}</td>
                     <td>{{ vendu.qte }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('vendu_show', { 'id': vendu.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('vendu_edit', { 'id': vendu.id }) }}">edit</a>
-                            </li>
-                        </ul>
+                        <div class="btn btn-default"> 
+                            <a href="{{ path('vendu_show', { 'id': vendu.id }) }}">
+                                <i class="glyphicon glyphicon-zoom-in"> 
+                                    show
+                                </i> 
+                            </a>
+                        </div>
+
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('vendu_edit', { 'id': vendu.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                    edit
+                                </i> 
+                            </a> 
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
@@ -37,7 +44,11 @@
     </div>
     <ul>
         <li>
-            <a href="{{ path('vendu_new') }}">Create a new vendu</a>
+            <a href="{{ path('vendu_new') }}">
+                <i class="glyphicon glyphicon-plus"> 
+                    add Vendu
+                </i> 
+            </a>
         </li>
     </ul>
 {% endblock %}

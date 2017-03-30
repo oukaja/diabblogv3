@@ -12,7 +12,11 @@ class PostType extends AbstractType {
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('titre')->add('corps')->add('publicationDate')->add('image', 'vlabs_file', array(
+        $builder->add('titre')
+                ->add('corps')
+                ->add('publicationDate', 'datetime', array('widget' => 'single_text',
+                                               'date_format' => 'yyyy-MM-dd  HH:i'))
+                ->add('image', 'vlabs_file', array(
             'required' => false
         ))
         ;

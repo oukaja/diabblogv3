@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class VenduType extends AbstractType
 {
@@ -15,7 +16,10 @@ class VenduType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('datevendu')->add('qte')
+        $builder->add('datevendu',DateType::class, array(
+                    'widget' => 'single_text',
+                ))
+                ->add('qte')
                 ->add('produit', EntityType::class, array(
                     'class' => 'AdminAdminBundle:Produit',
                     'query_builder' => function (EntityRepository $er) {

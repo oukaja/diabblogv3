@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Produits list</h1>
+   
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,14 +21,21 @@
                     <td>{{ produit.prix }}</td>
                     <td>{{ produit.qte }}</td>
                     <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('produit_show', { 'id': produit.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('produit_edit', { 'id': produit.id }) }}">edit</a>
-                            </li>
-                        </ul>
+                        <div class="btn btn-default"> 
+                            <a href="{{ path('produit_show', { 'id': produit.id }) }}">
+                                <i class="glyphicon glyphicon-zoom-in"> 
+                                    show
+                                </i> 
+                            </a>
+                        </div>
+
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('produit_edit', { 'id': produit.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                    edit
+                                </i> 
+                            </a> 
+                        </div>
                     </td>
                 </tr>
             {% endfor %}
@@ -41,7 +48,11 @@
 
     <ul>
         <li>
-            <a href="{{ path('produit_new') }}">Create a new produit</a>
+             <a href="{{ path('produit_new') }}">
+                <i class="glyphicon glyphicon-plus"> 
+                    add Produit
+                </i> 
+            </a>
         </li>
     </ul>
 {% endblock %}

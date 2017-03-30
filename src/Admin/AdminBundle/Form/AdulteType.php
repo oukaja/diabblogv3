@@ -3,9 +3,10 @@
 namespace Admin\AdminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AdulteType extends AbstractType {
 
@@ -14,9 +15,13 @@ class AdulteType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('ninscription')
-                ->add('dateinscription')
+                ->add('dateinscription', DateType::class, array(
+                    'widget' => 'single_text',
+                ))
                 ->add('nom')
-                ->add('datenaissance')
+                ->add('datenaissance', DateType::class, array(
+                    'widget' => 'single_text',
+                ))
                 ->add('adresse')
                 ->add('remarque')
                 ->add('civilite', ChoiceType::class, array(
@@ -27,7 +32,7 @@ class AdulteType extends AbstractType {
                 ->add('ad', ChoiceType::class, array(
                     'choices' => array('ad1' => 'ad1', 'ad2' => 'ad2', 'ad3' => 'ad3'),
                     'required' => false,
-                    'placeholder' => 'ad',
+                    'placeholder' => 'Regime diab',
                     'empty_data' => null))
                 ->add('cin');
     }

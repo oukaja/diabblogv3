@@ -32,7 +32,7 @@ abstract class Personne
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateinscription", type="datetime")
+     * @ORM\Column(name="dateinscription", type="date")
      */
     private $dateinscription;
 
