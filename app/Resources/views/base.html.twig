@@ -16,17 +16,18 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Adulte</a></li>
+                    <li><a href="{{ path('adulte_index') }}">Adulte</a></li>
                     
-                    <li><a href="#">Enfant</a></li>
-                    <li><a href="#">Visite</a></li>
-                    <li><a href="#">Visite NA</a></li>
-                    <li><a href="#">Produit</a></li>
-                    <li><a href="#">Vendu</a></li>
+                    <li><a href="{{ path('enfant_index') }}">Enfant</a></li>
+                    <li><a href="{{ path('visite_index') }}">Visite</a></li>
+                    <li><a href="{{ path('visitena_index') }}">Visite NA</a></li>
+                    <li><a href="{{ path('produit_index') }}">Produit</a></li>
+                    <li><a href="{{ path('vendu_index') }}">Vendu</a></li>
+                    <li><a href="{{ path('post_new') }}">Nouveau Post</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </nav>

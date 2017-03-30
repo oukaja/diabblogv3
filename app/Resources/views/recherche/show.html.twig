@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recherche</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ recherche.id }}</td>
+            </tr>
+            <tr>
+                <th>Datetoprint</th>
+                <td>{% if recherche.dateToPrint %}{{ recherche.dateToPrint|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('recherche_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('recherche_edit', { 'id': recherche.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

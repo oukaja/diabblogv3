@@ -22,3 +22,4 @@ visitena_delete:
     path:     /{id}/delete
     defaults: { _controller: "AdminAdminBundle:VisiteNA:delete" }
     methods:  DELETE
+

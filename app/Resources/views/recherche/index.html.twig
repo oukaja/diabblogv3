@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recherches list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datetoprint</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recherche in recherches %}
+            <tr>
+                <td><a href="{{ path('recherche_show', { 'id': recherche.id }) }}">{{ recherche.id }}</a></td>
+                <td>{% if recherche.dateToPrint %}{{ recherche.dateToPrint|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('recherche_show', { 'id': recherche.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('recherche_edit', { 'id': recherche.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('recherche_new') }}">Create a new recherche</a>
+        </li>
+    </ul>
+{% endblock %}

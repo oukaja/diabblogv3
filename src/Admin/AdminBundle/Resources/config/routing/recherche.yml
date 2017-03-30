@@ -1,0 +1,24 @@
+recherche_index:
+    path:     /
+    defaults: { _controller: "AdminAdminBundle:Recherche:index" }
+    methods:  GET
+
+recherche_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminAdminBundle:Recherche:show" }
+    methods:  GET
+
+recherche_new:
+    path:     /new
+    defaults: { _controller: "AdminAdminBundle:Recherche:new" }
+    methods:  [GET, POST]
+
+recherche_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminAdminBundle:Recherche:edit" }
+    methods:  [GET, POST]
+
+recherche_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminAdminBundle:Recherche:delete" }
+    methods:  DELETE

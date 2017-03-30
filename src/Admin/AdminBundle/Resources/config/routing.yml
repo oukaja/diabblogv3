@@ -24,4 +24,8 @@ admin_admin_visite:
     
 admin_admin_visitena:
     resource: "@AdminAdminBundle/Resources/config/routing/visitena.yml"
-    prefix:   /admin/visitena    
+    prefix:   /admin/visitena
+
+admin_admin_recherche:
+    resource: "@AdminAdminBundle/Resources/config/routing/recherche.yml"
+    prefix:   /recherche    
