@@ -1,0 +1,24 @@
+vendu_index:
+    path:     /
+    defaults: { _controller: "AdminAdminBundle:Vendu:index" }
+    methods:  GET
+
+vendu_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminAdminBundle:Vendu:show" }
+    methods:  GET
+
+vendu_new:
+    path:     /new
+    defaults: { _controller: "AdminAdminBundle:Vendu:new" }
+    methods:  [GET, POST]
+
+vendu_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminAdminBundle:Vendu:edit" }
+    methods:  [GET, POST]
+
+vendu_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminAdminBundle:Vendu:delete" }
+    methods:  DELETE

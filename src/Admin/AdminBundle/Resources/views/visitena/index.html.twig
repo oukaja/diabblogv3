@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Visitenas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Diab</th>
+                <th>Tension</th>
+                <th>Poid</th>
+                <th>Remarque</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visiteNA in visiteNAs %}
+                <tr>
+                    <td><a href="{{ path('visitena_show', { 'id': visiteNA.id }) }}">{{ visiteNA.id }}</a></td>
+                    <td>{{ visiteNA.diab }}</td>
+                    <td>{{ visiteNA.tension }}</td>
+                    <td>{{ visiteNA.poid }}</td>
+                    <td>{{ visiteNA.remarque }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('visitena_show', { 'id': visiteNA.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('visitena_edit', { 'id': visiteNA.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(visiteNAs) }}
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('visitena_new') }}">Create a new visiteNA</a>
+        </li>
+    </ul>
+{% endblock %}

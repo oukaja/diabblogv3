@@ -1,0 +1,18 @@
+fos_user_security:
+    resource: "@AdminUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@AdminUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@AdminUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@AdminUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /reset
+
+fos_user_change_password:
+    resource: "@AdminUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Adulte</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ adulte.id }}</td>
+            </tr>
+            
+            <tr>
+                <th>Cin</th>
+                <td>{{ adulte.cin }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ personne.nom }}</td>
+            </tr>
+            <tr>
+                <th>ninscription</th>
+                <td>{{ personne.ninscription }}</td>
+            </tr>
+            <tr>
+                <th>dateinscription</th>
+                       <td>{% if personne.datenaissance %}{{ personne.datenaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {#% if vendu.datevendu %}{{ vendu.datevendu|date('Y-m-d H:i:s') }}{% endif %#}
+            </tr>
+            <tr>
+                <th>adresse</th>
+                <td>{{ personne.adresse }}</td>
+            </tr>
+            <tr>
+                <th>civilite</th>
+                <td>{{ personne.civilite }}</td>
+            </tr>
+            <tr>
+                <th>AD</th>
+                <td>{{ personne.ad }}</td>
+            </tr>    <td>{% if personne.dateinscription %}{{ personne.dateinscription|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {#{ personne.dateinscription }#}
+            </tr>
+            <tr>
+                <th>datenaissance</th>
+                <td>{% if personne.datenaissance %}{{ personne.datenaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {#% if vendu.datevendu %}{{ vendu.datevendu|date('Y-m-d H:i:s') }}{% endif %#}
+            </tr>
+            <tr>
+                <th>adresse</th>
+                <td>{{ personne.adresse }}</td>
+            </tr>
+            <tr>
+                <th>civilite</th>
+                <td>{{ personne.civilite }}</td>
+            </tr>
+            <tr>
+                <th>AD</th>
+                <td>{{ personne.ad }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('adulte_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('adulte_edit', { 'id': adulte.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

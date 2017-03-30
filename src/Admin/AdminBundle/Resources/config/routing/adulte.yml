@@ -1,0 +1,24 @@
+adulte_index:
+    path:     /
+    defaults: { _controller: "AdminAdminBundle:Adulte:index" }
+    methods:  GET
+
+adulte_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminAdminBundle:Adulte:show" }
+    methods:  GET
+
+adulte_new:
+    path:     /new
+    defaults: { _controller: "AdminAdminBundle:Adulte:new" }
+    methods:  [GET, POST]
+
+adulte_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminAdminBundle:Adulte:edit" }
+    methods:  [GET, POST]
+
+adulte_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminAdminBundle:Adulte:delete" }
+    methods:  DELETE

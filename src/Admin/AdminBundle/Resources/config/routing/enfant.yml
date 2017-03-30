@@ -1,0 +1,24 @@
+enfant_index:
+    path:     /
+    defaults: { _controller: "AdminAdminBundle:Enfant:index" }
+    methods:  GET
+
+enfant_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminAdminBundle:Enfant:show" }
+    methods:  GET
+
+enfant_new:
+    path:     /new
+    defaults: { _controller: "AdminAdminBundle:Enfant:new" }
+    methods:  [GET, POST]
+
+enfant_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminAdminBundle:Enfant:edit" }
+    methods:  [GET, POST]
+
+enfant_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminAdminBundle:Enfant:delete" }
+    methods:  DELETE

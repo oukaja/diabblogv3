@@ -1,0 +1,12 @@
+admin_blog_contact:
+    resource: "@AdminBlogBundle/Resources/config/routing/contact.yml"
+    prefix:   /contact
+
+admin_blog_post:
+    resource: "@AdminBlogBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+    
+admin_blog_homepage:
+    path:     /
+    defaults: { _controller: AdminBlogBundle:Default:index }
+

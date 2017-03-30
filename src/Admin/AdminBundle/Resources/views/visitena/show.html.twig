@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Visitena</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ visiteNA.id }}</td>
+            </tr>
+            <tr>
+                <th>Diab</th>
+                <td>{{ visiteNA.diab }}</td>
+            </tr>
+            <tr>
+                <th>Tension</th>
+                <td>{{ visiteNA.tension }}</td>
+            </tr>
+            <tr>
+                <th>Poid</th>
+                <td>{{ visiteNA.poid }}</td>
+            </tr>
+            <tr>
+                <th>Remarque</th>
+                <td>{{ visiteNA.remarque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('visitena_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('visitena_edit', { 'id': visiteNA.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

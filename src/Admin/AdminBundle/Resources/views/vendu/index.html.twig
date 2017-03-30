@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Vendus list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datevendu</th>
+                <th>Qte</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vendu in vendus %}
+                <tr>
+                    <td><a href="{{ path('vendu_show', { 'id': vendu.id }) }}">{{ vendu.id }}</a></td>
+                    <td>{% if vendu.datevendu %}{{ vendu.datevendu|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ vendu.qte }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('vendu_show', { 'id': vendu.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('vendu_edit', { 'id': vendu.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(vendus) }}
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('vendu_new') }}">Create a new vendu</a>
+        </li>
+    </ul>
+{% endblock %}
