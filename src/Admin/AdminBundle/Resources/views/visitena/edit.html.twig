@@ -1,21 +1,93 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Visitena edit</h1>
+     <div class="col-lg-6 col-lg-offset-3"> 
+        <div class="panel panel-default"> 
+            <div class="panel-body"> 
+                <table class="table table-hover"> 
+                    {{ form_start(edit_form, {'attr': {'class': 'form form-control'}}) }}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+                    {{ form_errors(edit_form) }}
+                    <tr> 
+                        <td> 
+                            {{ form_label(edit_form.datevisite, "datevisite", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.datevisite) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.datevisite, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.diab, "diab", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.diab) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.diab, {'attr': {'class': 'form form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.tension, "tension", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.tension) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.tension, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.poid, "poid", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.poid) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.poid, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.remarque, "remarque", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.remarque) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.remarque, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                 
 
-    <ul>
-        <li>
-            <a href="{{ path('visitena_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+                    <tr>
+
+                        <td class="text text-center" colspan="2">
+                            <input class="btn btn-primary" type="submit" value="Edit" />
+                        </td>
+                    </tr>
+                    {{ form_end(edit_form) }}
+                </table> 
+            </div>
+        </div>
+    </div>
+
+       <div class="col-lg-6 col-lg-offset-3"> 
+        <table class="table table-responsive"> 
+            <tr>
+                <td>
+                    <br>   
+                    <div class="btn btn-default"> 
+                        <a href="{{ path('visitena_index') }}">
+                            <i class="glyphicon glyphicon-list"> 
+                                List
+                            </i> 
+                        </a>
+                    </div>
+                </td> 
+                
+                <td> 
+                    {{ form_start(delete_form) }}
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </td> 
+            </tr> 
+        </table>
+    </div>
 {% endblock %}

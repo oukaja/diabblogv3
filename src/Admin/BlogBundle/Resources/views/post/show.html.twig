@@ -1,44 +1,65 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Post</h1>
+    <div class="col-lg-6 col-lg-offset-3"> 
+        <div class="panel panel-default"> 
+            <div class="panel-body"> 
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ post.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Titre</th>
+                            <td>{{ post.titre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Corps</th>
+                            <td>{{ post.corps }}</td>
+                        </tr>
+                        <tr>
+                            <th>Publicationdate</th>
+                            <td>{% if post.publicationDate %}{{ post.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>image </th>
+                            <td>{%if post.image %} {{ post.image|vlabs_filter('resize', { width : 300, height : 300, keepRatio : true } )|vlabs_media('image') }} {% endif %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-    <table>
-        <tbody>
+    <div class="col-lg-6 col-lg-offset-3"> 
+        <table class="table table-responsive"> 
             <tr>
-                <th>Id</th>
-                <td>{{ post.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ post.titre }}</td>
-            </tr>
-            <tr>
-                <th>Corps</th>
-                <td>{{ post.corps }}</td>
-            </tr>
-            <tr>
-                <th>Publicationdate</th>
-                <td>{% if post.publicationDate %}{{ post.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>image </th>
-                <td>{%if post.image %} {{ post.image|vlabs_filter('resize', { width : 300, height : 300, keepRatio : true } )|vlabs_media('image') }} {% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('post_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                <td>
+                    <br>   
+                    <div class="btn btn-default"> 
+                        <a href="{{ path('post_index') }}">
+                            <i class="glyphicon glyphicon-list"> 
+                                List
+                            </i> 
+                        </a>
+                    </div>
+                </td> 
+                <td> <br> 
+                    <div class="btn btn-default"> 
+                        <a href="{{ path('post_edit', { 'id': post.id }) }}">
+                            <i class="glyphicon glyphicon-pencil"> 
+                                Edit
+                            </i> 
+                        </a>
+                    </div>
+                     </td> 
+                <td> 
+                    {{ form_start(delete_form) }}
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </td> 
+            </tr> 
+        </table>
+    </div>
 {% endblock %}

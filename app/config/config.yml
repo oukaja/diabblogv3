@@ -97,3 +97,4 @@ vlabs_media:
     templates:
         form_doc: VlabsMediaBundle:Templates:form_doc.html.twig
         image: VlabsMediaBundle:Templates:image.html.twig       
+    

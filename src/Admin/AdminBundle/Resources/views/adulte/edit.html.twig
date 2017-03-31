@@ -1,21 +1,125 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Adulte edit</h1>
-    <div class="container container-fluid">
-        {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-        {{ form_end(edit_form) }}
-    </div> 
-    <ul>
-        <li>
-            <a href="{{ path('adulte_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="col-lg-6 col-lg-offset-3"> 
+        <div class="panel panel-default"> 
+            <div class="panel-body"> 
+                <table class="table table-hover"> 
+                    {{ form_start(edit_form, {'attr': {'class': 'form form-control'}}) }}
+
+                    {{ form_errors(edit_form) }}
+                    <tr> 
+                        <td> 
+                            {{ form_label(edit_form.nom, "nom", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.nom) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.nom, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.dateinscription, "dateinscription", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.dateinscription) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.dateinscription, {'attr': {'class': 'form form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.ninscription, "ninscription", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.ninscription) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.ninscription, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.datenaissance, "datenaissance", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.datenaissance) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.datenaissance, {'attr': {'class': 'form-control'}}) }}   
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ form_label(edit_form.adresse, "adresse", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.adresse) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.adresse, {'attr': {'class': 'form-control'}}) }} 
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.remarque, "remarque", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.remarque) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.remarque, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ form_label(edit_form.civilite, "civilite", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.civilite) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.civilite, {'attr': {'class': 'form-control'}}) }} 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {{ form_label(edit_form.ad, "ad", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.ad) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.ad, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ form_label(edit_form.cin, "cin", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.cin) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.cin, {'attr': {'class': 'form-control'}}) }}  
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td class="text text-center" colspan="2">
+                            <input class="btn btn-info" type="submit" value="Edit" />
+                        </td>
+                    </tr>
+                    {{ form_end(edit_form) }}
+                </table> 
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-lg-offset-3"> 
+        <table class="table table-responsive"> 
+            <tr>
+                <td>
+                    <br>   
+                    <div class="btn btn-default"> 
+                        <a href="{{ path('adulte_index') }}">
+                            <i class="glyphicon glyphicon-list"> 
+                                List
+                            </i> 
+                        </a>
+                    </div>
+                </td> 
+                <td> 
+                    {{ form_start(delete_form) }}
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </td> 
+            </tr> 
+        </table>
+    </div>
 {% endblock %}

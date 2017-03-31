@@ -2,6 +2,10 @@ visite_index:
     path:     /
     defaults: { _controller: "AdminAdminBundle:Visite:index" }
     methods:  GET
+    
+visite_list:
+    path:     /list/{dayl}
+    defaults: { _controller: "AdminAdminBundle:Visite:list" }
 
 visite_show:
     path:     /{id}/show

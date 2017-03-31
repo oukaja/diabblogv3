@@ -1,21 +1,72 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Produit edit</h1>
+     <div class="col-lg-6 col-lg-offset-3"> 
+        <div class="panel panel-default"> 
+            <div class="panel-body"> 
+                <table class="table table-hover"> 
+                    {{ form_start(edit_form, {'attr': {'class': 'form form-control'}}) }}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+                    {{ form_errors(edit_form) }}
+                    <tr> 
+                        <td> 
+                            {{ form_label(edit_form.nom, "nom", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.nom) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.nom, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.prix, "prix", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.prix) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.prix, {'attr': {'class': 'form form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            {{ form_label(edit_form.qte, "qte", {'attr': {'class': ''}}) }}
+                            {{ form_errors(edit_form.qte) }}
+                        </td>
+                        <td>
+                            {{ form_widget(edit_form.qte, {'attr': {'class': 'form-control'}}) }}    
+                        </td>
+                    </tr>
+                    
+                    <tr>
 
-    <ul>
-        <li>
-            <a href="{{ path('produit_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                        <td class="text text-center" colspan="2">
+                            <input class="btn btn-primary" type="submit" value="Edit" />
+                        </td>
+                    </tr>
+                    {{ form_end(edit_form) }}
+                </table> 
+            </div>
+        </div>
+    </div>
+       <div class="col-lg-6 col-lg-offset-3"> 
+        <table class="table table-responsive"> 
+            <tr>
+                <td>
+                    <br>   
+                    <div class="btn btn-default"> 
+                        <a href="{{ path('produit_index') }}">
+                            <i class="glyphicon glyphicon-list"> 
+                                List
+                            </i> 
+                        </a>
+                    </div>
+                </td> 
+                
+                <td> 
+                    {{ form_start(delete_form) }}
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </td> 
+            </tr> 
+        </table>
+    </div>
 {% endblock %}
