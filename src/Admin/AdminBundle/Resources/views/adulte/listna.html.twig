@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                 <th>Cin</th
+                <th>Nom</th>
+                <th>ninscription</th>
+                <th>dateinscription</th>
+                <th>datenaissance</th>
+                <th>adresse</th>
+                <th>civilite</th>
+                <th>AD</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for adulte in adultes %}
+                <tr>
+                    <td><a href="{{ path('adulte_show', { 'id': adulte.id }) }}">{{ adulte.id }}</a></td>
+                    <td>{{ adulte.cin }}</td
+                    <td>{{ adulte.nom }}</td>
+                    <td>{{ adulte.ninscription }}</td>
+                    <td>{% if adulte.dateinscription %}{{ adulte.dateinscription|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if adulte.datenaissance %}{{ adulte.datenaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ adulte.adresse }}</td>
+                    <td>{{ adulte.civilite }}</td>
+                    <td>{{ adulte.ad }}</td>
+                    <td>
+
+                       
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('adulte_adh', { 'id': adulte.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                   adh
+                                </i> 
+                            </a> 
+                        </div>
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(adultes) }}
+    </div>
+    
+{% endblock %}

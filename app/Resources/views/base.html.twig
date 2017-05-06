@@ -15,10 +15,10 @@
                     <a class="navbar-brand" href="{{ path('post_index') }}">Wafaa Diab</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
                     <li><a href="{{ path('adulte_index') }}">Adulte</a></li>
-                    
+                    <li><a href="{{ path('adulte_listna') }}">Adulte NA</a></li>
                     <li><a href="{{ path('enfant_index') }}">Enfant</a></li>
+                    <li><a href="{{ path('enfant_listna') }}">Enfant NA</a></li>
                     <li><a href="{{ path('visite_index') }}">Visite</a></li>
                     <li><a href="{{ path('visitena_index') }}">Visite NA</a></li>
                     <li><a href="{{ path('produit_index') }}">Produit</a></li>
@@ -27,7 +27,7 @@
                     <li><a href="{{ path('post_index') }}">list des Posts</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    
+
                     <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>

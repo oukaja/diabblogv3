@@ -7,6 +7,7 @@
             <tr>
                 <th>Id</th>
                 <th>Datevisite</th>
+                <th>Personne</th>
                 <th>Diab</th>
                 <th>Tension</th>
                 <th>Poid</th>
@@ -19,6 +20,7 @@
             <tr>
                 <td><a href="{{ path('visite_show', { 'id': visite.id }) }}">{{ visite.id }}</a></td>
                 <td>{% if visite.datevisite %}{{ visite.datevisite|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ visite.personne.id ~ ' ' ~ visite.personne.nom}}</td>
                 <td>{{ visite.diab }}</td>
                 <td>{{ visite.tension }}</td>
                 <td>{{ visite.poid }}</td>

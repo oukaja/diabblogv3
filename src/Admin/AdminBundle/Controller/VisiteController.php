@@ -5,9 +5,8 @@ namespace Admin\AdminBundle\Controller;
 use Admin\AdminBundle\Entity\Visite;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use \Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Validator\Constraints\DateTime;
+use \Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Visite controller.
@@ -37,16 +36,25 @@ class VisiteController extends Controller {
         ));
     }
 
-    public function listAction($dayl) {
-        $em = $this->getDoctrine()->getManager();
-
-        $visites = $em->getRepository('AdminAdminBundle:Visite')->findAll();
-        $serializer = $this->get('serializer');
-
-        $json = $serializer->serialize($visites, 'json');
+    public function listAction(Request $request) {
+        $date = $request->get('dayl');
+        $em = $this->getDoctrine()->getEntityManager();
+        $builder = $em->createQueryBuilder();
+        $result = $builder->select('a.id', 'a.datevisite', 'a.diab', 'a.tension', 'a.poid', 'a.remarque', 'c.nom' , 'c.ninscription')
+                        ->from('AdminAdminBundle:Visite', 'a')
+                        ->innerJoin('a.personne', 'c','a.personne = c.id')
+                        //->innerJoin('a', 'personne', 'c', 'a.personne = c.id')
+                        ->andWhere('a.datevisite > :date_start')
+                        ->andWhere('a.datevisite < :date_end')
+                        ->setParameter('date_start', new \DateTime($date . " 00:00:00"))
+                        ->setParameter('date_end', new \DateTime($date . " 23:59:59"))
+                        ->getQuery()->getResult();
         
-        return new Response($json);
-    }
+       return $this->render('AdminAdminBundle:visite:list.html.twig', array(
+                    'visites' => $result,
+        ));
+      
+            }
 
     /**
      * Creates a new visite entity.

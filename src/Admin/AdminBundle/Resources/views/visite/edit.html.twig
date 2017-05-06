@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-     <div class="col-lg-6 col-lg-offset-3"> 
+    <div class="col-lg-6 col-lg-offset-3"> 
         <div class="panel panel-default"> 
             <div class="panel-body"> 
                 <table class="table table-hover"> 
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-   <div class="col-lg-6 col-lg-offset-3"> 
+    <div class="col-lg-6 col-lg-offset-3"> 
         <table class="table table-responsive"> 
             <tr>
                 <td>
@@ -89,7 +89,7 @@
                         </a>
                     </div>
                 </td> 
-                
+
                 <td> 
                     {{ form_start(delete_form) }}
                     <input class="btn btn-danger" type="submit" value="Delete">
@@ -98,4 +98,5 @@
             </tr> 
         </table>
     </div>
+   
 {% endblock %}

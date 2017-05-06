@@ -14,23 +14,50 @@ use Knp\Component\Pager\Paginator;
  */
 class AdulteController extends Controller {
 
-    /**
-     * Lists all adulte entities.
-     *
-     */
-    public function indexAction(Request $request) {
+    public function listnaAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
 
-        $adultes = $em->getRepository('AdminAdminBundle:Adulte')->findAll();
+        $enfants = $em->getRepository('AdminAdminBundle:Adulte')->findBy(array('adh' => 0,));
 
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          */
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-                 $adultes, /* query NOT result */
-                $request->query->getInt('page', 1)/* page number */,
-                10/* limit per page */
+                $enfants, /* query NOT result */ $request->query->getInt('page', 1)/* page number */, 10/* limit per page */
+        );
+
+        return $this->render('AdminAdminBundle:adulte:listna.html.twig', array(
+                    'adultes' => $pagination,
+        ));
+    }
+
+    public function adhAction(\Symfony\Component\HttpFoundation\Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $personne = $em->getRepository('AdminAdminBundle:Personne')->find($request->get('id'));
+        $personne->setAdh(1);
+        $em->persist($personne);
+        $em->flush($personne);
+
+        return $this->redirectToRoute('adulte_index');
+    }
+
+    /**
+     * Lists all adulte entities.
+     *
+     */
+    public function indexAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $i = '1';
+        $adultes = $em->getRepository('AdminAdminBundle:Adulte')->findBy(array('adh' => 1,));
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+                $adultes, /* query NOT result */ $request->query->getInt('page', 1)/* page number */, 10/* limit per page */
         );
 
         return $this->render('AdminAdminBundle:adulte:index.html.twig', array(

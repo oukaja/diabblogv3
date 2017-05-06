@@ -22,3 +22,13 @@ enfant_delete:
     path:     /{id}/delete
     defaults: { _controller: "AdminAdminBundle:Enfant:delete" }
     methods:  DELETE
+
+enfant_listna:
+    path:     /listna
+    defaults: { _controller: "AdminAdminBundle:Enfant:listna" }
+    methods:  GET
+
+enfant_adh:
+    path:     /{id}/adh
+    defaults: { _controller: "AdminAdminBundle:Enfant:adh" }
+    methods:  [GET, POST]

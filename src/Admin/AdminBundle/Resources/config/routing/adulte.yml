@@ -22,3 +22,13 @@ adulte_delete:
     path:     /{id}/delete
     defaults: { _controller: "AdminAdminBundle:Adulte:delete" }
     methods:  DELETE
+
+adulte_listna:
+    path:     /listna
+    defaults: { _controller: "AdminAdminBundle:Adulte:listna" }
+    methods:  GET
+
+adulte_adh:
+    path:     /{id}/adh
+    defaults: { _controller: "AdminAdminBundle:Adulte:adh" }
+    methods:  [GET, POST]

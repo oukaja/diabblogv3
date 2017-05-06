@@ -13,6 +13,25 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class VisiteNAController extends Controller {
 
+    public function listAction(Request $request) {
+        $date = $request->get('dayl');
+        $em = $this->getDoctrine()->getEntityManager();
+        $builder = $em->createQueryBuilder();
+        $result = $builder->select('a.id', 'a.datevisite', 'a.diab', 'a.tension', 'a.poid', 'a.remarque')
+                        ->from('AdminAdminBundle:VisiteNA', 'a')
+                        // ->innerJoin('a.personne', 'c','a.personne = c.id')
+                        //->innerJoin('a', 'personne', 'c', 'a.personne = c.id')
+                        ->andWhere('a.datevisite >= :date_start')
+                        ->andWhere('a.datevisite <= :date_end')
+                        ->setParameter('date_start', new \DateTime($date . " 00:00:00"))
+                        ->setParameter('date_end', new \DateTime($date . " 23:59:59"))
+                        ->getQuery()->getResult();
+        //return new \Symfony\Component\HttpFoundation\JsonResponse($result);
+        return $this->render('AdminAdminBundle:visitena:list.html.twig', array(
+                    'visites' => $result,
+        ));
+    }
+
     /**
      * Lists all visiteNA entities.
      *
@@ -126,7 +145,5 @@ class VisiteNAController extends Controller {
                         ->getForm()
         ;
     }
-
-    
 
 }

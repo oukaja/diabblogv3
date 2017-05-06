@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>ninscription</th>
+                <th>dateinscription</th>
+                <th>datenaissance</th>
+                <th>adresse</th>
+                <th>civilite</th>
+                <th>AD</th>
+                <th>Nom pere</th>
+                <th>Nom mere</th>
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enfant in enfants %}
+                <tr>
+                    <td><a href="{{ path('enfant_show', { 'id': enfant.id }) }}">{{ enfant.id }}</a></td>
+                    <td>{{ enfant.nom }}</td>
+                    <td>{{ enfant.ninscription }}</td>
+                    <td>{% if enfant.dateinscription %}{{ enfant.dateinscription|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if enfant.datenaissance %}{{ enfant.datenaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ enfant.adresse }}</td>
+                    <td>{{ enfant.civilite }}</td>
+                    <td>{{ enfant.ad }}</td>
+                    <td>{{ enfant.nompere }}</td>
+                    <td>{{ enfant.nommere }}</td>
+
+                    <td>
+                       
+
+                        <div class="btn btn-info">  
+                            <a  href="{{ path('enfant_adh', { 'id': enfant.id }) }}">
+                                <i class="glyphicon glyphicon-edit"> 
+                                    adh
+                                </i> 
+                            </a> 
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(enfants) }}
+    </div>
+    
+{% endblock %}

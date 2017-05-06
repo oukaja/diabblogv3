@@ -84,6 +84,13 @@ abstract class Personne
      */
     private $visite;
 
+     /**
+     * @var int
+     *
+     * @ORM\Column(name="adh", type="integer", options={"default":1})
+     */
+    private $adh;
+    
     /**
      * Get id
      *
@@ -300,4 +307,28 @@ abstract class Personne
     }
 
     
+
+    /**
+     * Set adh
+     *
+     * @param integer $adh
+     *
+     * @return Personne
+     */
+    public function setAdh($adh)
+    {
+        $this->adh = $adh;
+
+        return $this;
+    }
+
+    /**
+     * Get adh
+     *
+     * @return integer
+     */
+    public function getAdh()
+    {
+        return $this->adh;
+    }
 }

@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Datevisite</th>
                 <th>Diab</th>
                 <th>Tension</th>
                 <th>Poid</th>
@@ -18,6 +19,7 @@
             {% for visiteNA in visiteNAs %}
                 <tr>
                     <td><a href="{{ path('visitena_show', { 'id': visiteNA.id }) }}">{{ visiteNA.id }}</a></td>
+                    <td>{% if visiteNA.datevisite %}{{ visiteNA.datevisite|date('Y-m-d H:i:s') }}{% endif %}</td>
                     <td>{{ visiteNA.diab }}</td>
                     <td>{{ visiteNA.tension }}</td>
                     <td>{{ visiteNA.poid }}</td>

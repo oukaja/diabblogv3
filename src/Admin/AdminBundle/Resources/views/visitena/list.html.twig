@@ -7,7 +7,6 @@
             <tr>
                 <th>Id</th>
                 <th>Datevisite</th>
-                <th>Personne</th>
                 <th>Diab</th>
                 <th>Tension</th>
                 <th>Poid</th>
@@ -20,7 +19,6 @@
                 <tr>
                     <td>{{ visite.id }}</td>
                     <td>{% if visite.datevisite %}{{ visite.datevisite|date('Y-m-d H:i:s') }}{% endif %}</td>
-                    <td>{{ visite.ninscription ~ ' ' ~ visite.nom}}</td>
                     <td>{{ visite.diab }}</td>
                     <td>{{ visite.tension }}</td>
                     <td>{{ visite.poid }}</td>

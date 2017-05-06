@@ -23,3 +23,6 @@ visitena_delete:
     defaults: { _controller: "AdminAdminBundle:VisiteNA:delete" }
     methods:  DELETE
 
+visitena_list:
+    path:     /list/{dayl}
+    defaults: { _controller: "AdminAdminBundle:VisiteNA:list" }
